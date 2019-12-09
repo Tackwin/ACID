@@ -1,0 +1,138 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% si 5 pages ce n'est pas assez on peut changer la mise en page ?
+% \usepackage[a4paper]{geometry}
+\usepackage[french]{babel}
+\usepackage[left=3cm, right=3cm, top=1.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+% coloration syntaxique code
+\usepackage{listings}
+\lstset{
+  showspaces=false,
+  language=c++,
+  basicstyle=\ttfamily
+}
+
+
+\author{
+  BOURROUX Luca\\
+  \texttt{luca.bourroux@etu.u-bordeaux.fr}
+}
+
+\title{Rapport ACID}
+\date{9 Decembre 2019} 
+
+\begin{document}
+
+\maketitle
+
+\section{Visualisation des données}
+On peut voir que les deux légumes sont inscrit très fidélement dans un plan,
+cela veut dire que nous pouvons réduire les dimensions.
+
+\section{Classification avec peu de données}
+
+\subsection{MAP 3D}
+Nous avons:\\
+C1: 2.75 \% \\
+C2: 61 \%\\
+Total: 32 \%
+\subsection{Perceptron 3D}
+Nous avons:\\
+C1: 3.32 \% \\
+C2: 40.80 \%\\
+Total: 22.06 \%
+
+\subsection{MAP 2D}
+Nous avons:\\
+C1: 3.12 \% \\
+C2: 51.00 \%\\
+Total: 27.06 \%
+\subsection{Perceptron 2D}
+Nous avons:\\
+C1: 6.49 \% \\
+C2: 19.78 \%\\
+Total: 13.14 \%
+
+
+La différence peut s'expliquer par le fait que nos données s'inscrivent trés bien dans deux plans différents
+qui se croisent rarement avec les jeux de données que nous avons. Le Perceptron est meilleur
+en général mais brille dans la classe C2 car c'est celle qui a peu de différences dans l'axe Z.
+
+\subsection{MAP ACP}
+Nous avons:\\
+C1: 2.86 \% \\
+C2: 53.81 \%\\
+Total: 28.33 \%
+\subsection{Perceptron ACP}
+Nous avons:\\
+C1: 5.78 \% \\
+C2: 23.06 \%\\
+Total: 14.42 \%
+
+Ici on a le même comportement que précedemment,
+cela s'explique par le fait que ACP a choisi les mêmes axes que nous
+quand nous sommes passé en 2D.
+
+\section{Classification avec beaucoup de données}
+
+\subsection{MAP 3D}
+Nous avons:\\
+C1: 10.21 \% \\
+C2: 4.76 \%\\
+Total: 7.48 \%
+\subsection{Perceptron 3D}
+Nous avons:\\
+C1: 8.27 \% \\
+C2: 10.81 \%\\
+Total: 9.54 \%
+
+\subsection{MAP 2D}
+Nous avons:\\
+C1: 10.01 \% \\
+C2: 4.45 \%\\
+Total: 7.23 \%
+\subsection{Perceptron 2D}
+Nous avons:\\
+C1: 8.62 \% \\
+C2: 9.63 \%\\
+Total: 13.14 \%
+
+\subsection{MAP ACP}
+Nous avons:\\
+C1: 10.01 \% \\
+C2: 4.46 \%\\
+Total: 7.24 \%
+\subsection{Perceptron ACP}
+Nous avons:\\
+C1: 8.59 \% \\
+C2: 10.65 \%\\
+Total: 9.62 \%
+
+Ici nous avons des résultats identiques pour ACP et 2D cela montre qu'avec plus d'échantillons
+ACP reconnaît qu'une des dimensions est inutile dans la classification.
+Cependant comme nous aurions pu l'attendre avec la réduction de l'incertitude due à
+l'augmentation des échantillons on a harmonisé les erreurs entre C1 et C2.
+Les données nous donnent plus de précision aussi.
+
+\section{Conclusion}
+
+On peut voir que les resultats obtenus avec peu de données pour certaines classes étaient pire qu'un jet de dés.
+Cela met en valeur l'importance de notre taille d'échantillons. Par ce même phénomène il est compliqué de tirer beaucoup de conclusions
+sur le premier jeu de données vu que tout résultat peut être dû à la chance.
+
+Cela dit on peut voir que réduire la dimension de nos données peut être très important pour la précision des résultats,
+une dimension en trop ce sont des données en trop que le modèle doit "accommoder". De plus
+nous n'avons pas fait d'itérations donc notre modèle n'a pas le temps de s'apercevoir qu'une dimension
+est superflue.
+
+Les résultats montrent que le MAP est le modèle le plus adapté à nos données,
+ce qui peut paraître étonnant étant donnée la séparation linéaire claire entre nos deux
+classes.
+
+Mais il ne faut pas oublier qu'une bonne séparation linéaire signifie aussi une bonne séparation
+des fonctions de probabilités.
+
+\end{document}

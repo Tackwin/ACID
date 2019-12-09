@@ -16,12 +16,12 @@ k = 1;
 
 %while(size(Ym, 2) != 0) => Pb si pas séparable!
 while (norm(W-Wnext) > 0.001)
-W = Wnext;
-Ym = MalPlaces(Y, W);
-s = sum(Ym, 2);
-k = k+1;
-Wnext = W + eta/k * s; % diviser par k ralentit l'évolution pour forcer l'arrêt
-endwhile
+    W = Wnext;
+    Ym = MalPlaces(Y, W);
+    s = sum(Ym, 2);
+    k = k+1;
+    Wnext = W + eta/k * s; % diviser par k ralentit l'évolution pour forcer l'arrêt
+end
 
 
-endfunction
+end

@@ -6,7 +6,7 @@ function [V] = CalculACP (Echantillon)
         [SortedLambda, indices] = sort(diag(Lambda), 'descend');
         % renvoyer les vecteurs propres dans le même ordre
         V = VP(:, indices);
-endfunction
+end
 
 
 

@@ -1,4 +1,4 @@
-function  Res  = myClassify(test, W, label1, label2)
+function  Res  = PerClassify(test, W, label1, label2)
     testnorm = [ones(1, size(test, 2)); test];
 
     side = W'*testnorm ;
